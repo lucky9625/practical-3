@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: 70px 1fr 50px;
+      height: 100vh;
+      border: 2px solid black;
+      background: #f4f4f4;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      grid-area: header;
+      background: #4CAF50;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .theme-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background: #f2f2f2;
+      padding: 1.5rem 1rem;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    main {
+      grid-area: main;
+      padding: 2rem;
+      background: #fff;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #4CAF50;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* === Dark Mode CSS using checkbox === */
+    #darkToggle {
+      display: none;
+    }
+
+    #darkToggle:checked ~ .dashboard {
+      background: #222;
+      color: #f4f4f4;
+    }
+
+    #darkToggle:checked ~ .dashboard header,
+    #darkToggle:checked ~ .dashboard footer {
+      background: #111;
+    }
+
+    #darkToggle:checked ~ .dashboard .sidebar {
+      background: #333;
+    }
+
+    #darkToggle:checked ~ .dashboard main {
+      background: #000;
+    }
+
+    #darkToggle:checked ~ .dashboard .sidebar a {
+      color: #90caf9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle Checkbox (hidden) -->
+  <input type="checkbox" id="darkToggle">
+
+  <div class="dashboard">
+    <header>
+      <h2>Admin Dashboard</h2>
+      <label class="theme-switch" for="darkToggle">
+        <span>Dark Mode</span>
+        <input type="checkbox" style="pointer-events: none;" />
+      </label>
+    </header>
+
+    <nav class="sidebar">
+      <a href="#">Home</a>
+      <a href="#">Users</a>
+      <a href="#">Settings</a>
+    </nav>
+
+    <main>
+      <h3>Welcome, Admin!</h3>
+      <p>This is the main content area. Add charts, tables, or reports here.</p>
+    </main>
+
+    <footer>
+      &copy; 2025 Admin Panel
+    </footer>
+  </div>
+
+</body>
+</html>
